@@ -1,4 +1,6 @@
-CREATE DATABASE IF NOT EXISTS mydb;
+CREATE DATABASE IF NOT EXISTS mydb
+    DEFAULT CHARACTER SET utf8mb4
+    DEFAULT COLLATE utf8mb4_unicode_ci;
 
 USE mydb;
 
@@ -17,7 +19,7 @@ CREATE TABLE IF NOT EXISTS vendors (
     longitude FLOAT(10,6),
     cuisine VARCHAR(255),
     PRIMARY KEY (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS dishes (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -30,7 +32,7 @@ CREATE TABLE IF NOT EXISTS dishes (
     vendorID INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (vendorID) REFERENCES vendors(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS supermarkets (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -43,7 +45,7 @@ CREATE TABLE IF NOT EXISTS supermarkets (
     latitude FLOAT(10,6),
     longitude FLOAT(10,6),
     PRIMARY KEY (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE IF NOT EXISTS products (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -56,4 +58,4 @@ CREATE TABLE IF NOT EXISTS products (
     supermarketID INT UNSIGNED NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (supermarketID) REFERENCES supermarkets(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
