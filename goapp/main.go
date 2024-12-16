@@ -11,7 +11,7 @@ import (
 
     _ "github.com/go-sql-driver/mysql"
     "github.com/gorilla/mux"
-	  "github.com/gorilla/handlers"
+	"github.com/gorilla/handlers"
 )
 
 var db *sql.DB
@@ -49,7 +49,7 @@ func main() {
     dbHost := os.Getenv("MYSQL_HOST")
     dbName := os.Getenv("MYSQL_DATABASE")
 
-    dsn := fmt.Sprintf("%s:%s@tcp(%s:3306)/%s", dbUser, dbPass, dbHost, dbName)
+    dsn := fmt.Sprintf("%s:%s@tcp(%s:3306)/%s?charset=utf8mb4&parseTime=true", dbUser, dbPass, dbHost, dbName)
     var err error
     db, err = sql.Open("mysql", dsn)
     if err != nil {
@@ -64,13 +64,12 @@ func main() {
     router.HandleFunc("/ping", ping).Methods("GET")
     router.HandleFunc("/vendors", getVendors).Methods("GET")
     router.HandleFunc("/dishes", getDishes).Methods("GET")
-    router.HandleFunc("/vendors/vn{id}", getVendorByID).Methods("GET")
-    router.HandleFunc("/dishes/vendors/vn{id}", getDishesByVendorID).Methods("GET")
+    router.HandleFunc("/vendors/{id}", getVendorByID).Methods("GET")
+    router.HandleFunc("/dishes/vendors/{id}", getDishesByVendorID).Methods("GET")
 
-	  allowedOrigins := handlers.AllowedOrigins([]string{"http://localhost:5173"})
-	  allowedMethods := handlers.AllowedMethods([]string{"GET"})
-	  allowedHeaders := handlers.AllowedHeaders([]string{"Content-Type", "Authorization"})
-    log.Fatal(http.ListenAndServe(":8080", handlers.CORS(allowedOrigins, allowedMethods, allowedHeaders)(router)))
+	allowedOrigins := handlers.AllowedOrigins([]string{"http://localhost:5173"})
+	allowedMethods := handlers.AllowedMethods([]string{"GET"})
+	allowedHeaders := handlers.AllowedHeaders([]string{"Content-Type", "Authorization"})
 }
 
 func ping(w http.ResponseWriter, r *http.Request) {
@@ -135,7 +134,8 @@ func getVendorByID(w http.ResponseWriter, r *http.Request) {
 
     var v Vendor
     err = db.QueryRow(`SELECT id, name, ratings, noOfReviews, listing, logo, price, deliveryTime, deliveryFee, address, latitude, longitude, cuisine 
-                       FROM vendors WHERE id = ?`, id).Scan(&v.VendorID, &v.Name, &v.Ratings, &v.NoOfReviews, &v.Listing, &v.Logo, &v.Price, &v.DeliveryTime, &v.DeliveryFee, &v.Address, &v.Latitude, &v.Longitude, &v.Cuisine)
+                       FROM vendors WHERE id = ?`, id).
+        Scan(&v.VendorID, &v.Name, &v.Ratings, &v.NoOfReviews, &v.Listing, &v.Logo, &v.Price, &v.DeliveryTime, &v.DeliveryFee, &v.Address, &v.Latitude, &v.Longitude, &v.Cuisine)
     if err == sql.ErrNoRows {
         http.Error(w, "Vendor not found", http.StatusNotFound)
         return
