@@ -25,7 +25,7 @@ type Vendor struct {
 	Logo         string  `json:"logo"`
 	Price        string  `json:"price"`
 	DeliveryTime string  `json:"deliveryTime"`
-	DeliveryFee  string  `json:"deliveryFee"`
+	DeliveryFee  float64 `json:"deliveryFee"`
 	Address      string  `json:"address"`
 	Latitude     float64 `json:"latitude"`
 	Longitude    float64 `json:"longitude"`
