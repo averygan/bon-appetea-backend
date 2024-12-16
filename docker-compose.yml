@@ -1,0 +1,42 @@
+version: "3.9"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: my_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_DATABASE: mydb
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d 
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  goapp:
+    build: ./goapp
+    container_name: goapp_container
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_USER: myuser
+      MYSQL_PASSWORD: mypassword
+      MYSQL_HOST: mysql
+      MYSQL_DATABASE: mydb
+    ports:
+      - "8080:8080"
+    restart: on-failure
+
+  nginx:
+    build: ./nginx
+    container_name: my_nginx
+    depends_on:
+      - goapp
+    ports:
+      - "80:80"
+    restart: on-failure
