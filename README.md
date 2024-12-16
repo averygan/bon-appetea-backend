@@ -1,6 +1,6 @@
 # mySQL database hosted on Docker
 
-4 endpoints from port 8080, linked to frontend port 5173:
+4 endpoints from port 8080, accessible via frontend port 5173:
 - /vendors: fetch vendors
 - /dishes: fetch dishes
 - /vendors/vn{id}: fetch vendors by id
