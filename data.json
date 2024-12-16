@@ -259,7 +259,7 @@
         "description": "Cheeseburger (single beef patty) with lettuce, tomato, ShackSauce",
         "price": 10.90,
         "discount": 0.5,
-        "image": "https://images.deliveryhero.io/image/menu-import-gateway-rd/regions/AS/chains/tabsquare_sg/c1076b731e4df6aafe1d2f689a892433.jpg",
+        "image": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/tabsquare_sg/c1076b731e4df6aafe1d2f689a892433.jpg",
         "availability": true
       },
       {
@@ -269,7 +269,7 @@
         "description": "Cheese sauce packed separately",
         "price": 7.30,
         "discount": 0.5,
-        "image": "https://images.deliveryhero.io/image/menu-import-gateway-rd/regions/AS/chains/tabsquare_sg/360a9c462148e079432e721d93bc8dec.jpg",
+        "image": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/tabsquare_sg/360a9c462148e079432e721d93bc8dec.jpg",
         "availability": true
       },
       {
@@ -279,7 +279,7 @@
         "description": "Pieces of all-natural chicken breast crisp-fried to order, served with your choice of dipping sauce",
         "price": 7.60,
         "discount": 0,
-        "image": "https://images.deliveryhero.io/image/menu-import-gateway-rd/regions/AS/chains/tabsquare_sg/224fc7b65ad082a2ff98c24ab12f73bd.jpg",
+        "image": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/tabsquare_sg/224fc7b65ad082a2ff98c24ab12f73bd.jpg",
         "availability": true
       },
       {
@@ -289,7 +289,7 @@
         "description": "Cheeseburger (single beef patty) with all-natural applewood smoked bacon, chopped cherry pepper, ShackSauce",
         "price": 12.90,
         "discount": 0,
-        "image": "https://images.deliveryhero.io/image/menu-import-gateway-rd/regions/AS/chains/tabsquare_sg/204d80a00335bc1f30d1eea4af5aede0.jpg",
+        "image": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/tabsquare_sg/204d80a00335bc1f30d1eea4af5aede0.jpg",
         "availability": true
       },
       {
@@ -299,7 +299,7 @@
         "description": "Monterey Jack cheeseburger topped with caramelized onions, fresh scallions and Sarawak white pepper sauce.",
         "price": 12.30,
         "discount": 0.4,
-        "image": "https://images.deliveryhero.io/image/menu-import-gateway-rd/regions/AS/chains/tabsquare_sg/a10d5e9d45b31a175c253bf404ff2a19.jpg",
+        "image": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/tabsquare_sg/a10d5e9d45b31a175c253bf404ff2a19.jpg",
         "availability": true
       },
       {
@@ -309,7 +309,7 @@
         "description": "Topped with Sarawak white pepper sauce and fresh scallions",
         "price": 7.10,
         "discount": 0.5,
-        "image": "https://images.deliveryhero.io/image/menu-import-gateway-rd/regions/AS/chains/tabsquare_sg/359ca09abd413176120de12ed274fa3e.jpg",
+        "image": "https://images.deliveryhero.io/image/menu-import-gateway-prd/regions/AS/chains/tabsquare_sg/359ca09abd413176120de12ed274fa3e.jpg",
         "availability": true
       },
       {
