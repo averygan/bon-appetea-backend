@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS vendors (
     logo VARCHAR(255),
     price VARCHAR(10),
     deliveryTime VARCHAR(45),
-    deliveryFee VARCHAR(20),
+    deliveryFee FLOAT(6,2),
     address VARCHAR(255),
     latitude FLOAT(10,6),
     longitude FLOAT(10,6),
