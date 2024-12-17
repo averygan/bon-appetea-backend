@@ -1,5 +1,9 @@
 # mySQL database hosted on Docker
 
+Install the following on your machine:
+- Go (`brew install go`)
+- Docker & Docker Compose (`brew install docker docker-compose`)
+
 ## Hosting the database
 1. Run `colima start`
 2. Navigate to the `/backend/goapp` directory
