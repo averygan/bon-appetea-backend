@@ -1,0 +1,53 @@
+erDiagram
+    VENDORS {
+        INT id PK "Primary Key"
+        VARCHAR name
+        FLOAT ratings
+        VARCHAR noOfReviews
+        VARCHAR listing
+        VARCHAR logo
+        VARCHAR price
+        VARCHAR deliveryTime
+        FLOAT deliveryFee
+        VARCHAR address
+        FLOAT latitude
+        FLOAT longitude
+        VARCHAR cuisine
+    }
+
+    DISHES {
+        INT id PK "Primary Key"
+        VARCHAR name
+        TEXT description
+        FLOAT price
+        FLOAT discount
+        VARCHAR image
+        BOOLEAN availability
+        INT vendorID FK "Foreign Key to VENDORS"
+    }
+
+    SUPERMARKETS {
+        INT id PK "Primary Key"
+        VARCHAR name
+        VARCHAR listing
+        VARCHAR logo
+        VARCHAR deliveryTime
+        VARCHAR deliveryFee
+        VARCHAR address
+        FLOAT latitude
+        FLOAT longitude
+    }
+
+    PRODUCTS {
+        INT id PK "Primary Key"
+        VARCHAR name
+        TEXT description
+        FLOAT price
+        FLOAT discount
+        VARCHAR baseImage
+        BOOLEAN availability
+        INT supermarketID FK "Foreign Key to SUPERMARKETS"
+    }
+
+    VENDORS ||--o{ DISHES : "offers"
+    SUPERMARKETS ||--o{ PRODUCTS : "sells"
